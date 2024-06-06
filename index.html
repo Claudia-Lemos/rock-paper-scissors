@@ -11,45 +11,49 @@
       let humanScore = 0;
       let computerScore = 0;
 
-      let playRound = function () {
-        let choiceIndex = Math.floor(Math.random() * 3);
-        let choices = ["rock", "paper", "scissors"];
-        let getComputerChoice = choices[choiceIndex];
-        console.log("Computer: ", getComputerChoice);
-
-        let getHumanChoice = prompt(
-          "Input your option - rock, paper, scissors"
-        );
-        getHumanChoice = getHumanChoice.toLowerCase();
-        console.log("Human: ", getHumanChoice);
-
-        let playRound = (human, computer) => {
-          if (computer === human) {
-            console.log("Its a draw");
-            computerScore++, humanScore++;
-          } else if (
-            (computer === "rock" && human === "scissors") ||
-            (computer === "paper" && human === "rock") ||
-            (computer === "scissors" && human === "paper")
-          ) {
-            console.log("Computer wins");
-            computerScore++;
-          } else {
-            console.log("Human wins");
-            humanScore++;
-          }
-          console.log(
-            `Player score is ${humanScore} and Computer score is ${computerScore}`
-          );
-        };
-        playRound(getHumanChoice, getComputerChoice);
+      let getHumanChoice = function () {
+        let choice = prompt("Input your option - rock, paper, scissors");
+        return choice.toLowerCase();
       };
 
-      playRound();
-      playRound();
-      playRound();
-      playRound();
-      playRound();
+      let getComputerChoice = function () {
+        let choiceIndex = Math.floor(Math.random() * 3);
+        let choices = ["rock", "paper", "scissors"];
+        return choices[choiceIndex];
+      };
+
+      let playRound = (human, computer) => {
+        if (human === computer) {
+          console.log("Its a draw");
+          computerScore++, humanScore++;
+        } else if (
+          (human === "scissors" && computer === "rock") ||
+          (human === "rock" && computer === "paper") ||
+          (human === "paper" && computer === "scissors")
+        ) {
+          console.log("Computer wins");
+          computerScore++;
+        } else {
+          console.log("Human wins");
+          humanScore++;
+        }
+        console.log(
+          `Player score is ${humanScore} and Computer score is ${computerScore}`
+        );
+      };
+
+      let playGame = function () {
+        let humanChoice = getHumanChoice();
+        console.log(`Human: ${humanChoice}`);
+        let computerChoice = getComputerChoice();
+        console.log(`Computer: ${computerChoice}`);
+        playRound(humanChoice, computerChoice);
+      };
+      playGame();
+      playGame();
+      playGame();
+      playGame();
+      playGame();
     </script>
   </body>
 </html>
