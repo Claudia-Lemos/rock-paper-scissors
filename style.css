@@ -1,0 +1,33 @@
+#title {
+    font-size: larger;
+    color: blueviolet;
+    background-color: rgb(222, 213, 28);
+    text-align: center;
+    padding: 10px;
+}
+
+.content {
+    background-color: rgb(242, 238, 238);
+    display: flex;
+    align-items: center;
+}
+
+.rock,
+.paper,
+.scissors {
+    width: 70px;
+    height: 40px;
+    background-color: gray;
+    color: bisque;
+    padding: 5px;
+    margin: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10%;
+
+}
+
+button {
+    cursor: pointer;
+}

@@ -4,56 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock-Paper-Scissors</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div>Rock-Paper-Scissors</div>
-    <script>
-      let humanScore = 0;
-      let computerScore = 0;
+    <div id="title">Rock-Paper-Scissors</div>
+    <div id="keys"></div>
 
-      let getHumanChoice = function () {
-        let choice = prompt("Input your option - rock, paper, scissors");
-        return choice.toLowerCase();
-      };
-
-      let getComputerChoice = function () {
-        let choiceIndex = Math.floor(Math.random() * 3);
-        let choices = ["rock", "paper", "scissors"];
-        return choices[choiceIndex];
-      };
-
-      let playRound = (human, computer) => {
-        if (human === computer) {
-          console.log("Its a draw");
-          computerScore++, humanScore++;
-        } else if (
-          (human === "scissors" && computer === "rock") ||
-          (human === "rock" && computer === "paper") ||
-          (human === "paper" && computer === "scissors")
-        ) {
-          console.log("Computer wins");
-          computerScore++;
-        } else {
-          console.log("Human wins");
-          humanScore++;
-        }
-        console.log(
-          `Player score is ${humanScore} and Computer score is ${computerScore}`
-        );
-      };
-
-      let playGame = function () {
-        let humanChoice = getHumanChoice();
-        console.log(`Human: ${humanChoice}`);
-        let computerChoice = getComputerChoice();
-        console.log(`Computer: ${computerChoice}`);
-        playRound(humanChoice, computerChoice);
-      };
-      playGame();
-      playGame();
-      playGame();
-      playGame();
-      playGame();
-    </script>
+    <script src="index.js"></script>
   </body>
 </html>
